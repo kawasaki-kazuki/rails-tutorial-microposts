@@ -26,11 +26,47 @@ p{
 font-size: 1.1em; line-height: 1.7em;
 }
 /* header */
+header.navbar {
+background-color: #5b5b5b; /* 暗いグレー */
+}
+/* ロゴのスタイル */
 #logo {
 float: left;
-margin-right: 10px; font-size: 1.7em;
-color: #fff; text-transform: uppercase; letter-spacing: -1px; padding-top: 9px; font-weight: bold;
+margin-right: 10px;
+font-size: 1.7em;
+color: #fff;  /* 文字色を白に設定 */
+text-transform: uppercase;
+letter-spacing: -1px;
+padding-top: 9px;
+font-weight: bold;
+text-decoration: none;  /* 下線を非表示に設定 */
 }
 #logo:hover {
-color: #fff; text-decoration: none;
+color: #ccc;  /* ホバー時に文字色を薄いグレーに設定 */
+text-decoration: none;  /* 下線を非表示に */
+}
+
+/* ナビゲーションリンクのスタイル */
+.navbar-nav {
+display: flex;  /* 横並びにする */
+align-items: center;  /* 垂直方向の中央揃え */
+flex-direction: row; /* 横並び */
+}
+
+.navbar-nav li {
+margin-right: 15px;  /* 各リスト項目の間隔を設定 */
+}
+
+.navbar-nav li:last-child {
+margin-right: 0;  /* 最後のリスト項目の右マージンをゼロに */
+}
+
+.navbar-nav a {
+color: #fff;  /* リンクの文字色を白に設定 */
+text-decoration: none;  /* 下線を非表示に */
+}
+
+.navbar-nav a:hover {
+color: #ccc;  /* ホバー時にリンクの文字色を薄いグレーに設定 */
+text-decoration: none;  /* 下線を非表示に */
 }
