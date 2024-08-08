@@ -1,9 +1,39 @@
 @import "bootstrap";
 
 /* universal */
+// .container {
+// width: 100%;
+// max-width: 960px; /* 最大幅を指定して、中央に配置 */
+// }
+
 body {
 padding-top: 60px;
 }
+/* .col-md-auto にマージンを設定 */
+.col-md-auto {
+    margin-left: 10%;
+    margin-right: 10%;
+  
+    /* 大きなスクリーン用のマージン設定 */
+    @media (min-width: 768px) {
+      margin-left: 30%;
+      margin-right: 30%;
+      padding-left: 50%; /* 必要に応じて調整 */
+      padding-right: 50%; /* 必要に応じて調整 */
+    
+    /* 入力欄を狭くするためのスタイル */
+    .form-control {
+      max-width: 100%; /* 最大幅を100%に設定 */
+      width: 100%;     /* 幅を100%に設定 */
+    }
+    }
+    
+    /* モバイル用のマージン設定（768px未満の場合） */
+    @media (max-width: 767px) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
 section { overflow: auto;
 }
 textarea {
