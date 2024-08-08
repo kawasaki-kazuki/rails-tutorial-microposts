@@ -87,3 +87,18 @@ margin-bottom: 15px;
 input {
 height: auto !important;
 }
+/* エラー表示 */
+#error_explanation { 
+    color: red;
+    ul {
+        color: red;
+        margin: 0 0 30px 0;
+    }
+}
+.field_with_errors { 
+    @extend .is-invalid;
+    .form-control {
+        color: $danger; //Bootstrapのdanger色を直接使用
+    }
+}
+    
