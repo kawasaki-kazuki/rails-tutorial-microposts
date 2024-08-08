@@ -5,9 +5,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "Welcome to the Sample App!" # 成功メッセージをフラッシュする
+      redirect_to @user # ユーザー詳細ページにリダイレクト
     else
-      render 'new'
-    end 
+      # バリデーションエラー時の処理
+      render :new, status: :unprocessable_entity # :unprocessable_entity ステータスを設定することで、Turboがエラーを適切に処理できるようにする
+    end
   end
   private
   def user_params
