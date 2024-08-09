@@ -1,5 +1,5 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<header class="navbar navbar-expand-lg">
+  <div class="container-fluid">
     <%= link_to "Microposts", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
@@ -13,18 +13,22 @@
           <li>
             <%= link_to "Users", '#' %>
           </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
             </a>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
               <li>
                 <%= link_to "Profile", current_user %>
               </li>
               <li>
                 <%= link_to "Settings", '#' %>
               </li>
-              <li class="divider"></li>
+              <li class="dropdown-divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>
@@ -37,7 +41,8 @@
           <li>
             <%= link_to "Sign up", signup_path %>
           </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
