@@ -2,3 +2,6 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+<p>Email: <%= @user.email %></p>
+<p>Area: <%= @user.area %></p>
+<%= link_to "Edit profile", edit_user_path(@user) %>
