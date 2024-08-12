@@ -9,3 +9,6 @@ https://railsguides.jp/asset_pipeline.html#%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%
 //= require bootstrap
 import "@hotwired/turbo-rails"
 import "controllers"
+
+console.log("JavaScript is loaded correctly!");
+

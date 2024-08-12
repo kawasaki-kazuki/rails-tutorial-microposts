@@ -136,4 +136,7 @@ height: auto !important;
 .alert {
   margin-top: 20px; /* 好みの値に変更可能 */
 }
-    
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  position: unset;
+}
