@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user は `set_user` メソッドでセットされます
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.order(created_at: :desc)
   end
 
   def edit
