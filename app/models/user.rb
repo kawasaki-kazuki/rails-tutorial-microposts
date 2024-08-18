@@ -52,4 +52,8 @@ class User < ApplicationRecord
   def followers
     follower_users
   end
+
+  def feed_items
+    Micropost.where(user_id: following_user_ids + [id])
+  end
 end
