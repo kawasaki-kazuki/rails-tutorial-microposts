@@ -16,4 +16,30 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   has_secure_password
   has_many :microposts
+
+  # フォローしている人、されている人の実装
+  # #「dependent: :destroy」であるユーザーが削除されたときに、そのユーザーがフォローしている関係（following_relationships）や、
+  # #フォローされている関係（follower_relationships）も一緒に削除されるようにする
+  # ##あるuserがフォローしている人
+  has_many :following_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :following_users, through: :following_relationships, source: :followed
+  # ##あるuserをフォローしている人
+  has_many :follower_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :follower_usres, through: :follower_relationships, source: :follower
+
+  # 他のユーザーをフォローする
+  def follow(other_user)
+    following_relationships.find_or_create_by(followed_id: other_user.id)
+  end
+
+  # フォローしているユーザーをアンフォローする
+  def unfollow(other_user)
+    following_relationship = following_relationships.find_by(followed_id: other_user.id)
+    following_relationship.destroy if following_relationship
+  end
+
+  # あるユーザーをフォローしているのかどうか
+  def following?(other_user)
+    following_users.include?(other_user)
+  end
 end
