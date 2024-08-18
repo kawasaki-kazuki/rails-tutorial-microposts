@@ -25,7 +25,7 @@ class User < ApplicationRecord
   has_many :following_users, through: :following_relationships, source: :followed
   # ##あるuserをフォローしている人
   has_many :follower_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
-  has_many :follower_usres, through: :follower_relationships, source: :follower
+  has_many :follower_users, through: :follower_relationships, source: :follower
 
   # 他のユーザーをフォローする
   def follow(other_user)
@@ -41,5 +41,15 @@ class User < ApplicationRecord
   # あるユーザーをフォローしているのかどうか
   def following?(other_user)
     following_users.include?(other_user)
+  end
+
+  # フォローしているユーザーを取得するメソッド
+  def following
+    following_users
+  end
+
+  # フォロワーを取得するメソッド
+  def followers
+    follower_users
   end
 end
